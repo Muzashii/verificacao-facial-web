@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação Facial</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">Carregando...</div>
+
+        <!-- Mensagens de Sucesso ou Erro -->
+        <div id="mensagem" class="mensagem hidden">
+            <p></p>
+        </div>
+
+        <!-- Formulário de Cadastro -->
+        <h1>Cadastrar Usuário</h1>
+        <form id="formCadastro" enctype="multipart/form-data">
+            <input type="text" id="nome" placeholder="Nome" required><br>
+            <input type="file" id="imagens" name="imagens" accept="image/*" multiple required><br>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <!-- Formulário de Verificação -->
+        <h1>Verificar Usuário</h1>
+        <form id="formVerificacao" enctype="multipart/form-data">
+            <input type="text" id="nome_verificacao" placeholder="Nome" required><br>
+            <input type="file" id="imagem_verificacao" name="imagem_verificacao" accept="image/*"><br>
+            <button type="submit">Verificar</button>
+        </form>
+
+        <!-- Pré-visualização da Imagem para Verificação -->
+        <div class="imagem-previa hidden">
+            <h3>Imagem Selecionada:</h3>
+            <img id="imagemPrev" src="" alt="Imagem para Verificação">
+        </div>
+
+        <!-- Webcam Container -->
+        <div class="webcam-container">
+            <video id="webcam" class="webcam hidden" autoplay></video>
+            <canvas id="capturaCanvas" class="hidden"></canvas>
+            <img id="imagemCapturada" class="hidden" alt="Imagem capturada">
+        </div>
+        
+        <button id="capturaWebcam">Usar Webcam</button>
+        <button id="pararWebcam" class="hidden">Parar Webcam</button>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
